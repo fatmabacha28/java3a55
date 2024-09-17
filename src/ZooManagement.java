@@ -21,6 +21,13 @@ public class ZooManagement{
         // Output input by user
         System.out.println("nom du zoo: " + zooName);
         System.out.println("nombre de cages: " + nbrcages);
+        Animal a1=new Animal("mamifere","balene",10,true);
+        Animal a2=new Animal("mamifere","daufin",7,true);
+        Animal[] animals={a1,a2};
+        Zoo z1=new Zoo(animals,"belvedere","tunis",2);
+        z1.displayZoo();
+        a1.displayAnimal();
+        a2.displayAnimal();
 
 
 
