@@ -1,4 +1,6 @@
-import java.util.Scanner;
+package tn.esprit.gestionzoo.main;
+
+import tn.esprit.gestionzoo.entities.* ;
 
 public class ZooManagement{
     public static void main(String[] args) {
@@ -27,8 +29,8 @@ public class ZooManagement{
         Animal a1=new Animal("mamifere","balene",10,true);
         Animal a2=new Animal("mamifere","daufin",7,true);
         Animal a3=new Animal("mamifere","simba",5,true);
-        /*Animal[] animals={a1,a2};
-        Zoo z1=new Zoo(animals,"belvedere","tunis");
+        /*tn.esprit.gestionzoo.entities.Animal[] animals={a1,a2};
+        tn.esprit.gestionzoo.entities.Zoo z1=new tn.esprit.gestionzoo.entities.Zoo(animals,"belvedere","tunis");
         z1.displayZoo();
         a1.displayAnimal();
         a2.displayAnimal();*/
@@ -51,10 +53,10 @@ public class ZooManagement{
         z1.displayZoo();
 
         System.out.println("Full");
-        System.out.println(z1.isZooFull(z1));
+        System.out.println(z1.isZooFull());
 
         System.out.println("Comparaison");
-        Zoo z3=new Zoo();
+        Zoo z3=new Zoo("Belvedere2", "Tunis", 20);
         z3=z3.comparerZoo(z1,z2);
         z3.displayZoo();
 

@@ -1,41 +1,82 @@
+package tn.esprit.gestionzoo.entities;
 
 public class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    final int NB_CAGES = 25;
-    int nbranimals;
+    protected Animal[] animals;
+    protected String namez;
+    protected String city;
+    protected final int NB_CAGES = 25;
+    protected int nbranimals;
 
-    Zoo(){
+    //les getters
+    public Animal[] getAnimals() {
+        return animals;
+    }
+    public String getNamez() {
+        return namez;
+    }
+    public String getCity() {
+        return city;
+    }
+    public int getNB_CAGES() {
+        return NB_CAGES;
+    }
+
+    public int getNbranimals() {
+        return nbranimals;
+    }
+
+    //les setters
+    public void setNamez(String namez) {
+        if(namez.isEmpty()){
+            System.out.println("Le nom ne peut pas etre vide");
+        }
+        else{
+            this.namez = namez;
+        }
+    }
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public void setNbranimals(int nbranimals) {
+        this.nbranimals = nbranimals;
+    }
+
+    //les constructeurs
+    public Zoo(){
 
     }
     public Zoo(String name, String city, int nbranimals) {
-        this.name = name;
+        this.namez = name;
         this.city = city;
         animals = new Animal[nbranimals];
     }
+
+    //les methodes
     public void displayZoo(){
-        System.out.println("Name: "+this.name);
+        System.out.println("Name: "+this.namez);
         System.out.println("City: "+this.city);
         System.out.println("Nbrrcages: "+this.NB_CAGES);
         for(int i=0;i<NB_CAGES;i++){
             if(animals[i] != null){
-                System.out.println("Animal: "+this.animals[i].name);
+                System.out.println("tn.esprit.gestionzoo.entities.Animal: "+this.animals[i].name);
             }
             else{
-                System.out.println("Animal: null");
+                System.out.println("tn.esprit.gestionzoo.entities.Animal: null");
             }
 
         }
 
     }
     public String toString(){
-        return "Name: " + name+ " ,City: " + city+ " ,Nbr Cages: " + NB_CAGES;
+        return "Name: " + namez+ " ,City: " + city+ " ,Nbr Cages: " + NB_CAGES;
     }
 
     public  boolean addAnimal(Animal animal)
     {
-        if (searchAnimal(animal) == -1)  {
+        if (searchAnimal(animal) == -1 && !isZooFull())  {
             if((nbranimals < NB_CAGES)) {
                 animals[nbranimals] = animal;
                 nbranimals++;
@@ -47,7 +88,7 @@ public class Zoo {
             }
         }
         else {
-            System.out.println("Animal existe déjà");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal existe déjà");
             return false;
 
         }
@@ -74,7 +115,7 @@ public class Zoo {
         }
         return false;
     }
-    public boolean isZooFull(Zoo zoo){
+    public boolean isZooFull(){
         return (nbranimals == NB_CAGES);
     }
     public Zoo comparerZoo(Zoo z1, Zoo z2){
