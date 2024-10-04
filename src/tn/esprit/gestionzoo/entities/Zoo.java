@@ -61,7 +61,7 @@ public class Zoo {
         System.out.println("Nbrrcages: "+this.NB_CAGES);
         for(int i=0;i<NB_CAGES;i++){
             if(animals[i] != null){
-                System.out.println("tn.esprit.gestionzoo.entities.Animal: "+this.animals[i].name);
+                System.out.println("tn.esprit.gestionzoo.entities.Animal: "+this.animals[i].namea);
             }
             else{
                 System.out.println("tn.esprit.gestionzoo.entities.Animal: null");
@@ -96,7 +96,7 @@ public class Zoo {
 
     public int searchAnimal(Animal animal){
         for (int i = 0; i <nbranimals; i++) {
-            if (animals[i].name.equals(animal.name)) {
+            if (animals[i].namea.equals(animal.namea)) {
                 return i;
             }
         }
