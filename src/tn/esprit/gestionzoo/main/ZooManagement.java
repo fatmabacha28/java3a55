@@ -60,7 +60,20 @@ public class ZooManagement{
         z3=z3.comparerZoo(z1,z2);
         z3.displayZoo();
 
+        System.out.println("Heritage");
+        Aquatic aquatic=new Aquatic("mamifere","poisson",20,true,"water");
+        Terrestrial terrestrial=new Terrestrial("gdhgdg","lion",15,false,4);
+        Dolphin dolphin=new Dolphin("Mammifere","Dolphin",10,true,"Pole nord",20);
+        Penguin penguin=new Penguin("poupou","Penguin",8,false,"Pole sud",4.5f);
 
+        System.out.println(aquatic);
+        System.out.println(terrestrial);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+        aquatic.swim();
+        dolphin.swim();
+        penguin.swim();
 
 
     }

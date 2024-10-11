@@ -54,5 +54,8 @@ public class Animal {
     public void displayAnimal() {
         System.out.println(family + " " + namea + " " + age + " " + isMammal);
     }
+    public String toString(){
+        return "Family: " + family+ " ,Name: " +namea + " ,Age: " +  age + ", Mammal: " +isMammal;
+    }
 
 }
