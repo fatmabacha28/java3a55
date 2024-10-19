@@ -1,8 +1,15 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Dolphin extends Aquatic{
+public non-sealed class Dolphin extends Aquatic{
     protected float swimmingSpeed;
 
+    public float getSwimmingSpeed() {
+        return swimmingSpeed;
+    }
+
+    public void setSwimmingSpeed(float swimmingSpeed) {
+        this.swimmingSpeed = swimmingSpeed;
+    }
 
     //constructeur
     public Dolphin(){
@@ -17,7 +24,9 @@ public class Dolphin extends Aquatic{
     public String toString(){
         return super.toString()+" ,swimming speed:"+swimmingSpeed;
     }
-    public void swim(){
+
+    @Override
+    public  void swim(){
         System.out.println("This dolphin animal is swimming");
     }
 }

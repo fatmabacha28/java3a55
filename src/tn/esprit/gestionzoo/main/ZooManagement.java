@@ -61,19 +61,35 @@ public class ZooManagement{
         z3.displayZoo();
 
         System.out.println("Heritage");
-        Aquatic aquatic=new Aquatic("mamifere","poisson",20,true,"water");
+        //Aquatic aquatic=new Aquatic("mamifere","poisson",20,true,"water");
         Terrestrial terrestrial=new Terrestrial("gdhgdg","lion",15,false,4);
         Dolphin dolphin=new Dolphin("Mammifere","Dolphin",10,true,"Pole nord",20);
         Penguin penguin=new Penguin("poupou","Penguin",8,false,"Pole sud",4.5f);
+        Penguin penguin1=new Penguin("poupou","Penguin",8,false,"Pole sud",5.6f);
+        Penguin penguin2=new Penguin("poupou","Penguin",8,false,"Pole sud",1.5f);
 
-        System.out.println(aquatic);
+        //System.out.println(aquatic);
         System.out.println(terrestrial);
         System.out.println(dolphin);
         System.out.println(penguin);
 
-        aquatic.swim();
+
+        //aquatic.swim();
         dolphin.swim();
         penguin.swim();
+
+        System.out.println("Ajouter animal aquatique");
+        z1.addAquaticAnimal(dolphin);
+        z1.addAquaticAnimal(penguin);
+        z1.addAquaticAnimal(penguin1);
+        z1.addAquaticAnimal(penguin2);
+        dolphin.swim();
+        penguin.swim();
+        z1.displayNumberOfAquaticsByType();
+        float maxDepth = z1.maxPenguinSwimmingDepth();
+        System.out.println("La profondeur maximale des peinguins dans le zoo est: "+maxDepth);
+
+
 
 
     }
