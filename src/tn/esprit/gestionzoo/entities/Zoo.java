@@ -87,7 +87,7 @@ public class Zoo {
         return "Name: " + namez+ " ,City: " + city+ " ,Nbr Cages: " + NB_CAGES;
     }
 
-    public  boolean addAnimal(Animal animal)
+    /*public  boolean addAnimal(Animal animal)
     {
         if (searchAnimal(animal) == -1 && !isZooFull())  {
             if((nbranimals < NB_CAGES)) {
@@ -105,7 +105,30 @@ public class Zoo {
             return false;
 
         }
+    }*/
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+        // Vérifiez si l'animal a un âge négatif
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("L'âge de l'animal ne peut pas être négatif !");
+        }
+
+        // Vérifiez si le zoo est plein
+        if (isZooFull()) {
+            throw new ZooFullException("Le zoo est plein !");
+        }
+
+        // Vérifiez si l'animal existe déjà
+        if (searchAnimal(animal) != -1) {
+            System.out.println("L'animal existe déjà.");
+            return; // Vous pouvez choisir de lancer une exception ici aussi
+        }
+
+        // Ajoutez l'animal
+        animals[nbranimals] = animal;
+        nbranimals++;
+        System.out.println("Animal ajouté avec succès !");
     }
+
 
     public int searchAnimal(Animal animal){
         for (int i = 0; i <nbranimals; i++) {

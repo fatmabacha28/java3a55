@@ -38,10 +38,10 @@ public class ZooManagement{
         Zoo z1 = new Zoo("Friguia", "Hammamet", 25);
         Zoo z2 = new Zoo("Belvedere", "Tunis", 25);
 
-        System.out.println("Ajouter");
+        /*System.out.println("Ajouter");
         z1.addAnimal(a1);
         z1.addAnimal(a2);
-        z1.addAnimal(a3);
+        z1.addAnimal(a3);*/
 
         z1.displayZoo();
         System.out.println("Recherhce");
@@ -90,7 +90,18 @@ public class ZooManagement{
         System.out.println("La profondeur maximale des peinguins dans le zoo est: "+maxDepth);
 
 
+        System.out.println("Ajouter animal avec exception");
+        Zoo zoo = new Zoo("Mon Zoo", "Paris",3);
+        try {
+            zoo.addAnimal(new Dolphin("Dodo", "dolly",5,false,"ocean",40.5f));
+            System.out.println("Nombre d'animaux : " + zoo.getNbranimals());
+            zoo.addAnimal(new Penguin("poupou","Penguin",8,false,"Pole sud",4.5f));
+            System.out.println("Nombre d'animaux : " + zoo.getNbranimals());
+            zoo.addAnimal(new Dolphin("Dodo", "dolly",-10,false,"ocean",40.5f)); // Tentative d'ajout avec âge négatif
+        } catch (ZooFullException | InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
     }
-}
