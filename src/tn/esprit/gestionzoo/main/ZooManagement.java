@@ -101,6 +101,17 @@ public class ZooManagement{
         } catch (ZooFullException | InvalidAgeException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("Tester l'énumeration");
+        Aquatic doudou = new Dolphin("Doudou", "dolly",5,false,"ocean",40.5f);
+        Terrestrial boubou = new Terrestrial("Boubou", "bibou",7,true, 4);
+        Penguin poupou = new Penguin("poupou","Penguin",8,false,"Pole sud",4.5f);
+
+        doudou.eatMeat(Food.MEAT);
+        boubou.eatMeat(Food.MEAT);
+        boubou.eatPlant(Food.PLANT);
+        boubou.eatPlantAndMeat(Food.BOTH);
+
     }
 
 
