@@ -1,60 +1,61 @@
-
+import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) {
-        // Création d'une instance de SocieteArrayList
-        SocieteArrayList gestionEmployes = new SocieteArrayList();
+        AffectationHashMap gestionAffectations = new AffectationHashMap();
 
-        // Ajout d'employés
-        gestionEmployes.ajouterEmploye(new Employe(2, "Bacha", "Fatma", "Informatique", 3));
-        gestionEmployes.ajouterEmploye(new Employe(1, "Maatoug", "Hajer", "Ressources Humaines", 2));
-        gestionEmployes.ajouterEmploye(new Employe(3, "Saoudi", "Mahdi", "Finance", 4));
+        // Création des employés
+        Employe e1 = new Employe(1, "Bacha", "Fatma", "Informatique", 3);
+        Employe e2 = new Employe(2, "Maatoug", "Hajer", "Ressources Humaines", 2);
+        Employe e3 = new Employe(3, "Hamadi", "Youssef", "Finance", 4);
 
-        // Affichage des employés
+        // Création des départements
+        Departement d1 = new Departement(1, "Informatique", 10);
+        Departement d2 = new Departement(2, "Ressources Humaines", 5);
+        Departement d3 = new Departement(3, "Finance", 8);
+
+        // Instruction 2 : Ajouter des employés aux départements
+        gestionAffectations.ajouterEmployeDepartement(e1, d1);
+        gestionAffectations.ajouterEmployeDepartement(e2, d2);
+        gestionAffectations.ajouterEmployeDepartement(e3, d3);
+
+        // Instruction 3 : Afficher les employés et leurs départements
+        System.out.println("Affectations des employés aux départements :");
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        // Essayer d'ajouter le même employé dans deux départements différents
+        gestionAffectations.ajouterEmployeDepartement(e1, d2);
+        System.out.println("Affectations après tentative de double affectation :");
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        // Instruction 4 : Supprimer un employé
+        gestionAffectations.supprimerEmploye(e2);
+        System.out.println("Affectations après suppression de Maatou Hajer :");
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        // Instruction 5 : Supprimer un employé d'un département spécifique
+        gestionAffectations.supprimerEmployeEtDepartement(e1, d2);
+        System.out.println("Affectations après suppression de Fatma Bacha du département RH :");
+        gestionAffectations.afficherEmployesEtDepartements();
+
+        // Instruction 6 : Afficher la liste des employés
         System.out.println("Liste des employés :");
-        gestionEmployes.displayEmploye();
+        gestionAffectations.afficherEmployes();
 
-        // Recherche d'un employé par nom
-        String nomRecherche = "Bacha";
-        boolean trouve = gestionEmployes.rechercherEmploye(nomRecherche);
-        System.out.println("Employé " + nomRecherche + " trouvé : " + trouve);
-
-        // Suppression d'un employé
-        gestionEmployes.supprimerEmploye(new Employe(2, "Bacha", "Fatma", "Informatique", 2));
-        System.out.println("Liste des employés après suppression :");
-        gestionEmployes.displayEmploye();
-
-        // Tri des employés par ID
-        gestionEmployes.trierEmployeParId();
-        System.out.println("Liste des employés triée par ID :");
-        gestionEmployes.displayEmploye();
-
-        // Tri des employés par nom, département et grade
-        gestionEmployes.trierEmployeParNomDepartementEtGrade();
-        System.out.println("Liste des employés triée par nom, département et grade :");
-        gestionEmployes.displayEmploye();
-
-
-
-
-
-        DepartementHashSet gestionDepartements = new DepartementHashSet();
-
-        // Ajout de départements
-        gestionDepartements.ajouterDepartement(new Departement(1, "Informatique", 10));
-        gestionDepartements.ajouterDepartement(new Departement(2, "Ressources Humaines", 5));
-        gestionDepartements.ajouterDepartement(new Departement(3, "Finance", 8));
-
-        // Affichage des départements
+        // Instruction 7 : Afficher la liste des départements
         System.out.println("Liste des départements :");
-        gestionDepartements.displayDepartement();
+        gestionAffectations.afficherDepartements();
 
-        // Recherche d'un département
-        System.out.println("Recherche du département 'Informatique' : " +
-                gestionDepartements.rechercherDepartement("Informatique"));
+        // Instruction 8 : Rechercher un employé
+        System.out.println("Recherche de Youssef Hamadi : " + gestionAffectations.rechercherEmploye(e3));
 
-        // Suppression d'un département
-        gestionDepartements.supprimerDepartement(new Departement(2, "Ressources Humaines", 5));
-        System.out.println("Liste des départements après suppression :");
-        gestionDepartements.displayDepartement();
+        // Instruction 9 : Rechercher un département
+        System.out.println("Recherche du département Finance : " + gestionAffectations.rechercherDepartement(d3));
+
+        // Instruction 10 : Trier les employés par identifiant
+        // Trier les employés par identifiant
+        System.out.println("Collection triée par identifiant des employés :");
+        System.out.println(gestionAffectations.trierMap());
     }
 }
+
+

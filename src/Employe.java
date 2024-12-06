@@ -1,4 +1,4 @@
-public class Employe {
+public class Employe implements Comparable<Employe> {
     private int id;
     private String nom;
     private String prenom;
@@ -59,6 +59,12 @@ public class Employe {
         this.grade = grade;
     }
 
+    @Override
+    public int compareTo(Employe other) {
+        // Comparaison basée sur l'identifiant
+        return Integer.compare(this.id, other.id);
+    }
+
     // Redéfinition de la méthode equals
     @Override
     public boolean equals(Object obj) {
@@ -66,6 +72,11 @@ public class Employe {
         if (!(obj instanceof Employe)) return false;
         Employe employe = (Employe) obj;
         return id == employe.id && nom.equals(employe.nom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
     }
 
     // Redéfinition de la méthode toString
