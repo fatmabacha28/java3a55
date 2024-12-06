@@ -1,4 +1,6 @@
 import java.util.TreeMap;
+import java.util.Arrays;
+import java.util.List;
 public class Main {
     public static void main(String[] args) {
         AffectationHashMap gestionAffectations = new AffectationHashMap();
@@ -55,6 +57,8 @@ public class Main {
         // Trier les employés par identifiant
         System.out.println("Collection triée par identifiant des employés :");
         System.out.println(gestionAffectations.trierMap());
+
+
     }
 }
 
